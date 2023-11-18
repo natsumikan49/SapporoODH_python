@@ -1,5 +1,9 @@
-import pandas as pd
+import json
+import snowfall_csv
+import weather_forecast
 
-url = "https://www.data.jma.go.jp/stats/data/mdrr/snc_rct/alltable/sndall00_rct.csv"
+snowfall = snowfall_csv.snowfall_dict
+data = weather_forecast.data
+data_json = dict(**data, **snowfall)
 
-pd.read_csv(url)
+print(data_json)
