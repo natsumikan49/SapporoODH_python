@@ -13,5 +13,7 @@ jma_weather = jma_json[0]["timeSeries"][0]["areas"][0]["weathers"][1]
 # 全角スペースの削除
 jma_weather = jma_weather.replace('　', '')
 
+data = {"time":jma_date, "weather":jma_weather}
 print(jma_date)
 print(jma_weather)
+print(data)
