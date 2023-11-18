@@ -1,4 +1,5 @@
 import pandas as pd
+import json
 
 url = "https://www.data.jma.go.jp/stats/data/mdrr/snc_rct/alltable/sndall00_rct.csv"
 
@@ -8,5 +9,6 @@ sapporo_snowfall_df['取得時刻'] = sapporo_snowfall_df['現在時刻(年)'].a
 snowfall = sapporo_snowfall_df[['都道府県', '地点', '取得時刻', '24時間降雪量 現在値(cm)']]
 print(snowfall)
 
-data = snowfall.to_string()
+snowfall_dict = snowfall.iloc[0].to_dict()
+data = json.dumps(snowfall_dict, ensure_ascii=False, indent=2)
 print(data)
