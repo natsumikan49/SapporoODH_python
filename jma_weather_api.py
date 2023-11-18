@@ -3,7 +3,7 @@ import requests
 import json
 
 # 気象庁データの取得
-jma_url = "https://www.jma.go.jp/bosai/forecast/data/forecast/011000.json"
+jma_url = "https://www.jma.go.jp/bosai/forecast/data/forecast/013000.json"
 jma_json = requests.get(jma_url).json()
 
 # 取得したいデータを選ぶ
