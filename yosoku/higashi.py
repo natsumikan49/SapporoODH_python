@@ -5,9 +5,9 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 
-df_2019 = pd.read_csv(r"C:\Users\reali\Downloads\kansokukiroku2019\kansokukiroku_atubetu.csv", encoding="utf8", sep="\\t")
-df_2018 = pd.read_csv(r"C:\Users\reali\Downloads\sapporoweather2018atsubetsu.csv", encoding="utf8")
-df_2017 = pd.read_csv(r"C:\Users\reali\Downloads\sapporo_weather_2017_05atsubetsu.csv", encoding="utf8")
+df_2019 = pd.read_csv(r".\data\2019higasi.csv", encoding="utf8")
+df_2018 = pd.read_csv(r".\data\2018atsubetsu.csv", encoding="utf8")
+df_2017 = pd.read_csv(r".\data\2017atsubetsu.csv", encoding="utf8")
 
 print(df_2019)
 

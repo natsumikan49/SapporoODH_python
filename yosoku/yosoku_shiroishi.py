@@ -5,9 +5,9 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 
-df_2019 = pd.read_csv(r"C:\Users\reali\Downloads\kansokukiroku2019\kansokukiroku_siroisi.csv", encoding="utf8")
-df_2018 = pd.read_csv(r"C:\Users\reali\Downloads\sapporoweather2018shiroishi.csv", encoding="utf8")
-df_2017 = pd.read_csv(r"C:\Users\reali\Downloads\sapporoweather201704shiroishi.csv", encoding="utf8")
+df_2019 = pd.read_csv(r".\data\2019siroisi.csv", encoding="utf8")
+df_2018 = pd.read_csv(r".\data\2018shiroishi.csv", encoding="utf8")
+df_2017 = pd.read_csv(r".\data\2017shiroishi.csv", encoding="utf8")
 
 df_2019_co = df_2019[["気温(℃)", "風速(m/s)","風向(度:0～359)", "降水量(mm)", "積雪深(cm)"]]
 df_2019_co = df_2019_co.replace('×', np.NaN).dropna()
