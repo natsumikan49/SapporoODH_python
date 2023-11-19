@@ -45,3 +45,11 @@ model.fit(x_train, y_train)
 
 print('訓練データに対する決定係数：', model.score(x_train, y_train))
 print('テストデータに対する決定係数：', model.score(x_test, y_test))
+
+# 偏回帰係数
+coef = pd.Series(model.coef_, index=x.columns)
+coef_temp = coef["気温(℃)"]
+coef_rain = coef["降水量(mm)"]
+
+# 切片
+intercept = model.intercept_
