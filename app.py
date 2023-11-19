@@ -6,7 +6,7 @@ import os
 import yosoku_tyuou, kita, teine, kiyota, toyohira, minami, higashi, atsubetsu, nishi
 app = Flask(__name__)
 
-
+@app.route('/')
 def showFall_shiro():
     data_json = {}
     # 白石区
@@ -121,4 +121,5 @@ def showFall_shiro():
     print(data_json)
     return data_json
 
-showFall_shiro()
+if __name__ == '__main__':
+    app.run()
