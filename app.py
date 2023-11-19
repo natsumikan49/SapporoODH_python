@@ -2,7 +2,7 @@ from flask import Flask
 import snowfall_csv
 import weather_forecast
 import yosoku_shiroishi
-from yosoku import yosoku_tyuou, kita, teine, kiyota, toyohira, minami, higashi
+from yosoku import yosoku_tyuou, kita, teine, kiyota, toyohira, minami, higashi, atsubetsu
 app = Flask(__name__)
 
 
@@ -94,6 +94,19 @@ def showFall_shiro():
     snowfall7["24時間降雪量 現在値(cm)"] = yosoku7
     data_json8 = dict(**data7, **snowfall7)
     data_json["豊平"] = data_json8
+
+    print(data_json)
+    # 厚別区
+    snowfall8 = snowfall_csv.snowfall_dict
+    data8 = weather_forecast.data
+    snowfall8["地点"] = "厚別区"
+    yosoku8 = float(weather_forecast.jma_temp) * float(atsubetsu.coef_temp) + float(
+        weather_forecast.jma_rain) * float(atsubetsu.coef_rain) + float(atsubetsu.intercept)
+    if yosoku8 < 0:
+        yosoku8 = 0
+    snowfall8["24時間降雪量 現在値(cm)"] = yosoku8
+    data_json9 = dict(**data8, **snowfall8)
+    data_json["厚別"] = data_json9
 
     print(data_json)
     return
