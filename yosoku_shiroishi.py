@@ -26,10 +26,10 @@ print(df)
 
 # 目的変数を積雪、説明変数をそれ以外
 y = df["積雪深(cm)"]
-x = df[["気温(℃)", "風速(m/s)","風向(度:0～359)", "降水量(mm)"]]
+x = df[["気温(℃)", "降水量(mm)"]]
 
 # データを訓練データとテストデータに分ける
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.5, random_state=0)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.5)
 
 # x_train を標準化し x_train に格納
 ss = preprocessing.StandardScaler()
