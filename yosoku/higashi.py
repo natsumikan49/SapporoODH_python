@@ -5,9 +5,11 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 
-df_2019 = pd.read_csv(r"C:\Users\reali\Downloads\kansokukiroku2019\kansokukiroku_atubetu.csv", encoding="utf8")
+df_2019 = pd.read_csv(r"C:\Users\reali\Downloads\kansokukiroku2019\kansokukiroku_atubetu.csv", encoding="utf8", sep="\\t")
 df_2018 = pd.read_csv(r"C:\Users\reali\Downloads\sapporoweather2018atsubetsu.csv", encoding="utf8")
 df_2017 = pd.read_csv(r"C:\Users\reali\Downloads\sapporo_weather_2017_05atsubetsu.csv", encoding="utf8")
+
+print(df_2019)
 
 df_2019_co = df_2019[["気温(℃)", "風速(m/s)","風向(度:0～359)", "降水量(mm)", "積雪深(cm)"]]
 df_2019_co = df_2019_co.replace('×', np.NaN).dropna()
@@ -15,6 +17,7 @@ df_2018_co = df_2018[["気温(℃)", "風速(m/s)","風向(度:0～359)", "降�
 df_2018_co = df_2018_co.replace('×', np.NaN).dropna()
 df_2017_co = df_2017[["気温(℃)", "風速(m/s)","風向(度:0～359)", "降水量(mm)", "積雪深(cm)"]]
 df_2017_co = df_2017_co.replace('×', np.NaN).dropna()
+
 
 print(df_2019_co.corr())
 print(df_2018_co.corr())
@@ -46,3 +49,10 @@ model.fit(x_train, y_train)
 print('訓練データに対する決定係数：', model.score(x_train, y_train))
 print('テストデータに対する決定係数：', model.score(x_test, y_test))
 
+# 偏回帰係数
+coef = pd.Series(model.coef_, index=x.columns)
+coef_temp = coef["気温(℃)"]
+coef_rain = coef["降水量(mm)"]
+
+# 切片
+intercept = model.intercept_
